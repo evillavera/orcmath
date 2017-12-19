@@ -9,10 +9,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
-
+import evPlayground.Boss;
 import guiTeacher.GUIApplication;
 import guiTeacher.components.*;
 import guiTeacher.interfaces.FileRequester;
@@ -127,11 +126,11 @@ public class Sampler extends GUIApplication implements FileRequester{
 			}); 
 			viewObjects.add(cb);
 			
-			
 				
 				FileOpenButton fileButton = new FileOpenButton(490, 70, 120, 30, null,Sampler.this);
 				viewObjects.add(fileButton);
 			
+			viewObjects.add(new Boss());
 		}
 		
 		public void mouseDragged(MouseEvent m) {
