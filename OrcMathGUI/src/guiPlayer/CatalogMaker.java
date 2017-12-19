@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CatalogMaker {
-
+	//generally utility methods are static
 	public static Scanner in;
 
 	private ArrayList<Book> catalog;
@@ -71,7 +71,7 @@ public class CatalogMaker {
 		addBook(new Book(title, author, pages));
 	}
 
-	private int getIntegerInput() {
+	private static int getIntegerInput() {
 		String text = in.nextLine();
 		int value = 0;
 		boolean valid = false;
@@ -81,7 +81,9 @@ public class CatalogMaker {
 				valid = true;
 			}catch(NumberFormatException nfe){
 				displayMessage("You must enter an integer.");
+				text = in.nextLine();
 			}
+			
 		}
 		return value;
 	}
