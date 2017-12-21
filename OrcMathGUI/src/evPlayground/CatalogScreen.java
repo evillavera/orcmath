@@ -68,7 +68,7 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester {
 
 	protected void addClicked() {
 		Hero h = new Hero(heroField.getText(), imageField.getText(), Integer.parseInt(yearField.getText()));
-		catalog.addHero(h);
+		//catalog.addHero(h);
 		text.setText(hero + "\n" + h);
 		heroField.setText("");
 		imageField.setText("");

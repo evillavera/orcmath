@@ -171,7 +171,7 @@ public class HeroCatalog {
 		return value;
 	}
 	
-	public void addHero(Hero b){
+	public static void addHero(Hero b){
 		heroes.add(b);
 	}
 		
