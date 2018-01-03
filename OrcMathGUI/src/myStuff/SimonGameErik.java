@@ -1,14 +1,25 @@
 package myStuff;
 
-public class SimonGameErik {
+import guiPlayer.CustomGUI;
+import guiPlayer.CustomScreen;
+import guiTeacher.GUIApplication;
 
-	public SimonGameErik() {
-		// TODO Auto-generated constructor stub
+public class SimonGameErik extends GUIApplication{
+
+	public SimonGameErik(int width, int height) {
+		super(width,height);
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		SimonGameErik s = new SimonGameErik(800, 550);
+		Thread runner = new Thread(s);
+		runner.start();
+	}
 
+	@Override
+	public void initScreen() {
+		SimonScreenErik screen = new SimonScreenErik(getWidth(), getHeight());
+		setScreen(screen);
 	}
 
 }
