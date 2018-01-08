@@ -130,7 +130,7 @@ public class SimonScreenErik extends ClickableScreen implements Runnable {
 	private void addButtons() {
 		int numberOfButtons = 5;
 		buttons = new ButtonInterfaceErik[numberOfButtons];
-		Color[] buttonColors = {Color.blue,Color.red,Color.yellow,Color.GREEN,Color.orange};
+		Color[] buttonColors = {Color.blue,Color.red,Color.GRAY,Color.GREEN,Color.orange};
 		for(int i = 0; i < numberOfButtons;i++) {
 			final ButtonInterfaceErik b = getAButton();
 			b.setColor(buttonColors[i]);
