@@ -54,19 +54,19 @@ public class SimonScreenErik extends ClickableScreen implements Runnable {
 
 	private void playSequence() {
 		ButtonInterfaceErik b = getAButton();
-		for(MoveInterfaceErik m: sequence){ 
+		for(int i = 0; i < sequence.size(); i++) { 
 		    if(b != null) {
-		    		b.dim();
+		    	b.dim();
+			    b = sequence.get(i).getButton();
+			    b.highlight();
+			    int sleepTime = (1/roundNumber)/roundNumber;
+			    try {
+					Thread.sleep(sleepTime);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			    b.dim();
 		    }
-		    b = m.getButton();
-		    b.highlight();
-		    int sleepTime = (1/roundNumber)/roundNumber;
-		    try {
-				Thread.sleep(sleepTime);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		    b.dim();
 		}
 
 	}
@@ -110,7 +110,7 @@ public class SimonScreenErik extends ClickableScreen implements Runnable {
 	}
 
 	/**
-	 * Placeholder until partner finishes implementation of ProgressInterface
+	 * Placeholder until partner finishes implementation of MoveInterface
 	 * @return
 	 */
 	
@@ -123,8 +123,7 @@ public class SimonScreenErik extends ClickableScreen implements Runnable {
 	 * @return
 	 */
 	private ProgressInterfaceErik getProgress() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProgressErik(0,0,800,550);
 	}
 
 	private void addButtons() {
@@ -152,32 +151,31 @@ public class SimonScreenErik extends ClickableScreen implements Runnable {
 							}
 						});
 							blink.start();
+							if(b == sequence.get(sequenceIndex).getButton()) {
+								sequenceIndex++;
+							}else {
+								ProgressInterfaceErik.gameOver();
+							}
+							if(sequenceIndex == sequence.size()){ 
+							    Thread nextRound = new Thread(SimonScreenErik.this); 
+							    nextRound.start(); 
+							}
 						}
 					}	
 				});
 			buttons[i] = b;
 			//dont know where this belongs
-			if(b == sequence.get(sequenceIndex).getButton()) {
-				sequenceIndex++;
-			}else {
-				ProgressInterfaceErik.gameOver();
-			}
-			if(sequenceIndex == sequence.size()){ 
-			    Thread nextRound = new Thread(SimonScreenErik.this); 
-			    nextRound.start(); 
-			}
 			//up to here
 		}
 		
 	}
 	
 	/**
-	 * Placeholder until partner finishes implementation of ProgressInterface
+	 * Placeholder until partner finishes implementation of ButtonInterface
 	 * @return
 	 */
 	private ButtonInterfaceErik getAButton() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ButtonErik(0,0,40,40,"",Color.black,null);
 	}
 
 }

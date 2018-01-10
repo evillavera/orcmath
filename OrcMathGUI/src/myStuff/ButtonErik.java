@@ -8,9 +8,9 @@ import guiTeacher.components.Button;
 
 public class ButtonErik extends Button implements ButtonInterfaceErik {
 
+	private static Color color;
 	public Color startingColor;
 	public Color placeHolder;
-
 	
 	public ButtonErik(int x, int y, int w, int h, String text, Color color, Action action) {
 		super(x, y, w, h, text, color, action);
@@ -18,12 +18,12 @@ public class ButtonErik extends Button implements ButtonInterfaceErik {
 	}
 
 	public ButtonErik(int x, int y, int w, int h, String text, Action action) {
-		super(x, y, 40, 40, "", null);
+		super(x, y, w, h, "", null);
 		update();
 	}
 
 	public void setColor(Color color) {
-		this.startingColor = color;
+		this.color = color;
 		this.placeHolder = color;
 	}
 
@@ -45,5 +45,4 @@ public class ButtonErik extends Button implements ButtonInterfaceErik {
 			g.drawRect(this.getX(),this.getY(),this.getWidth(),this.getHeight());
 		}
 	}
-
 }
