@@ -15,7 +15,7 @@ public class Q1Screen extends FullFunctionScreen {
 	
 	public Q1Screen(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		// TODO Auto-generated constructor stu
 	}
 
 	@Override
