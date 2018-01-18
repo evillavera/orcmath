@@ -53,20 +53,20 @@ public class SimonScreenErik extends ClickableScreen implements Runnable {
 	}
 
 	private void playSequence() {
-		ButtonInterfaceErik b = getAButton();
-		for(int i = 0; i < sequence.size(); i++) { 
-		    if(b != null) {
-		    	b.dim();
-			    b = sequence.get(i).getButton();
-			    b.highlight();
-			    int sleepTime = (1/roundNumber)/roundNumber;
-			    try {
-					Thread.sleep(sleepTime);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			    b.dim();
-		    }
+		ButtonInterfaceErik b = null;
+		for(int i = 0; i < sequence.size(); i++) {
+			if(b != null) {
+				b.dim();
+				b = sequence.get(i).getButton();
+				b.highlight();
+				
+				try {
+	                Thread.sleep((int)(1000*roundNumber));
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+				b.dim();
+			}
 		}
 
 	}
@@ -177,5 +177,5 @@ public class SimonScreenErik extends ClickableScreen implements Runnable {
 	private ButtonInterfaceErik getAButton() {
 		return new ButtonErik(0,0,40,40,"",Color.black,null);
 	}
-
+	
 }

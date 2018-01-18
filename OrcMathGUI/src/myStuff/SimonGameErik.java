@@ -8,6 +8,7 @@ public class SimonGameErik extends GUIApplication{
 
 	public SimonGameErik(int width, int height) {
 		super(width,height);
+		setVisible(true);
 	}
 
 	public static void main(String[] args) {
