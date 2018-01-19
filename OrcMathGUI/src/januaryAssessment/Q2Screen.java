@@ -35,7 +35,7 @@ public class Q2Screen extends FullFunctionScreen {
 		
 		Timer t= new Timer();
 		t.scheduleAtFixedRate(new TimerTask() {
-			@Override
+			@Overrid
 			public void run() {
 				clock.setText(Integer.toString(startTime));
 				if(startTime<=0) {
